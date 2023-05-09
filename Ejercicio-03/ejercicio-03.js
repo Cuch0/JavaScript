@@ -1,28 +1,39 @@
 class Carrito {
     montoTotal;
     productos;
+    unidades;
 
-    constructor(montoTotal,productos){
-        this.montoTotal = montoTotal;
+    constructor(productos, montoTotal, unidades){
         this.productos = productos;
+        this.montoTotal = montoTotal;
+        this.unidades = unidades;
     }
 
     agregarProducto(nombre, precio, unidades) {
 
-        if (this.productos.includes(nombre)) {
-            console.log(`Ya existe "${nombre}" con ${unidades} unidades`);
-            return
-        } 
+        for(let i = 0 ; i < this.productos.length ; i++){
+            if(nombre == this.productos[i]) {
+                console.log(`Ya existe ${this.productos[i]} con ${this.unidades[i]} unidades`);
+                return
+            }
+        }
         
-        this.productos.push(nombre);    
-
+        this.productos.push(nombre);
         this.montoTotal += precio * unidades;
+        this.unidades.push(unidades)
     }
 }
 
-let cliente = new Carrito(10, ["Leche"])
+let cliente = new Carrito(["Leche"], 10, [1])
 cliente.agregarProducto("Yerba", 500, 2)
-cliente.agregarProducto("Leche", 500, 10)
-cliente.agregarProducto("Azucar", 500, 10)
+cliente.agregarProducto("Azucar", 250, 3)
+cliente.agregarProducto("Azucar", 250, 3)
 cliente.agregarProducto("Yerba", 500, 2)
 console.log(cliente);
+
+
+
+//  if (this.productos.includes(nombre)) {
+//     console.log(`Ya existe "${nombre}" con ${unidades} unidades`);
+//     return
+// }
