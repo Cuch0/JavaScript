@@ -30,10 +30,3 @@ cliente.agregarProducto("Azucar", 250, 3)
 cliente.agregarProducto("Azucar", 250, 3)
 cliente.agregarProducto("Yerba", 500, 2)
 console.log(cliente);
-
-
-
-//  if (this.productos.includes(nombre)) {
-//     console.log(`Ya existe "${nombre}" con ${unidades} unidades`);
-//     return
-// }
